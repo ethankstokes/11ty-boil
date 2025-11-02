@@ -1,50 +1,134 @@
+img {
+    max-width: 100%;
+    border-radius: 6px;
+    display: block;
+    margin: 1rem auto;
+}
+
+/* Center the list that appears directly under an h1 */
+h1 + ul {
+  width: max-content;
+  margin: 0.5rem auto;
+  padding-left: 1.2rem; /* keep bullets visible */
+  text-align: left;
+}
+
+/* Design system variables */
+:root {
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --radius: 8px;
+  --gap: 1rem;
+  --max-width: 900px;
+}
+
+/* Page base */
 body {
-    font-family: Helvetica, sans-serif;
-    color: #EAE8FF;
-    background: #2D3142;
-    padding: 0 40px;
-    text-align: center;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* Layout container for consistent page width & padding */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Navigation shell */
 nav {
-    margin: 40px auto 0 auto;
-    width: 250px;
-    border-radius: 50px;
-    background: #212431;
+  background: var(--surface);
+  padding: 0.5rem 1rem;
+  box-shadow: 0 1px 4px rgba(16,24,40,0.05);
+  border-radius: var(--radius);
+  margin: 1rem auto;
+  max-width: var(--max-width);
 }
 
+/* Navigation list */
 nav ul {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: center;
 }
 
-nav ul li {
-    list-style-type: none;
-    margin: 0;
+/* Navigation links */
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: calc(var(--radius) - 2px);
+  transition: background .15s ease, color .15s ease;
 }
 
-nav ul li a {
-    display: inline-block;
-    padding: 20px;
-    color: #EAE8FF;
-    text-decoration: none;
-    font-size: 1.2em;
+/* Navigation hover / focus state */
+nav a:hover,
+nav a:focus {
+  background: rgba(37,99,235,0.08);
+  color: var(--accent);
+  outline: none;
 }
 
+/* Headings */
 h1 {
-    font-size: 8em;
-    letter-spacing: -2px;
+  font-size: 1.75rem;
+  margin: 1rem 0;
+  text-align: center;
+  color: #0f172a;
 }
 
-h1 strong {
-    background: rgb(34,193,195);
-    background: linear-gradient(45deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+/* Paragraphs and list text */
+p,
+li {
+  color: var(--muted);
+  font-size: 1rem;
 }
 
-img.about {
-    opacity: 0.5;
+/* Generic links */
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Helper to center page text without affecting images */
+.centered {
+  text-align: center;
+}
+.centered p,
+.centered h1 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Shortcode: centered and pinned to the bottom of the home page */
+.shortcode {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  pointer-events: auto;
+  z-index: 50;
+  padding: 0 1rem;
+}
+
+/* Visual container for the shortcode output */
+.shortcode > * {
+  background: var(--surface);
+  padding: 0.5rem 0.75rem;
+  border-radius: calc(var(--radius) - 2px);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.07);
+  color: var(--text);
 }
